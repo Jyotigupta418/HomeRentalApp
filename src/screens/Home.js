@@ -22,7 +22,7 @@ const Home = () => {
   const popularServices = fetchPopularServices();
 
   return (
-    <ScrollView style={styles.container}  >
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}  >
 
       <View style={{ ...styles.container2, marginVertical: 15 }}>
         <View style={styles.searchInput}>
@@ -50,25 +50,25 @@ const Home = () => {
 
         <View style={{ ...styles.container2, flexWrap: 'wrap' }}>
 
-          <View style={{ ...styles.container2, ...styles.filterContainer, }}>
+          <TouchableOpacity style={{ ...styles.container2, ...styles.filterContainer, }}>
             <Image source={require('../assets/images/right-triangle.png')} style={styles.filterIcon} />
             <Text style={styles.filterText}>1400 sq.ft</Text>
-          </View>
+          </TouchableOpacity>
 
-          <View style={{ ...styles.container2, ...styles.filterContainer, }}>
+          <TouchableOpacity style={{ ...styles.container2, ...styles.filterContainer, }}>
             <Image source={require('../assets/images/bedroom.png')} style={styles.filterIcon} />
             <Text style={styles.filterText}>2 BHK</Text>
-          </View>
+          </TouchableOpacity>
 
-          <View style={{ ...styles.container2, ...styles.filterContainer, }}>
+          <TouchableOpacity style={{ ...styles.container2, ...styles.filterContainer, }}>
             <Image source={require('../assets/images/bathroom.png')} style={styles.filterIcon} />
             <Text style={styles.filterText}>2 Bathroom</Text>
-          </View>
+          </TouchableOpacity>
 
-          <View style={{ ...styles.container2, ...styles.filterContainer, }}>
+          <TouchableOpacity style={{ ...styles.container2, ...styles.filterContainer, }}>
             <Image source={require('../assets/images/garage.png')} style={styles.filterIcon} />
             <Text style={styles.filterText}>1 Garage</Text>
-          </View>
+          </TouchableOpacity>
 
         </View>
 
@@ -76,20 +76,20 @@ const Home = () => {
 
         <View style={{ ...styles.container2, flexWrap: 'wrap', justifyContent: 'flex-start' }}>
 
-          <View style={{ ...styles.container2, ...styles.filterContainer, paddingVertical: 6, marginRight: 15, marginVertical: 5 }}>
+          <TouchableOpacity style={{ ...styles.container2, ...styles.filterContainer, paddingVertical: 6, marginRight: 15, marginVertical: 5 }}>
             <Image source={OtherAmienities[0].iconUrl} style={styles.amenitiesIcon} />
             <Text style={styles.amenitiesText}>{OtherAmienities[0].title}</Text>
-          </View>
+          </TouchableOpacity>
 
-          <View style={{ ...styles.container2, ...styles.filterContainer, paddingVertical: 6, marginRight: 15, marginVertical: 5 }}>
+          <TouchableOpacity style={{ ...styles.container2, ...styles.filterContainer, paddingVertical: 6, marginRight: 15, marginVertical: 5 }}>
             <Image source={OtherAmienities[1].iconUrl} style={styles.amenitiesIcon} />
             <Text style={styles.amenitiesText}>{OtherAmienities[1].title}</Text>
-          </View>
+          </TouchableOpacity>
 
-          <View style={{ ...styles.container2, ...styles.filterContainer, paddingVertical: 6, marginRight: 15, marginVertical: 5 }}>
+          <TouchableOpacity style={{ ...styles.container2, ...styles.filterContainer, paddingVertical: 6, marginRight: 15, marginVertical: 5 }}>
             <Image source={OtherAmienities[2].iconUrl} style={styles.amenitiesIcon} />
             <Text style={styles.amenitiesText}>{OtherAmienities[2].title}</Text>
-          </View>
+          </TouchableOpacity>
 
         </View>
 
@@ -97,20 +97,19 @@ const Home = () => {
 
         {/* <RentalDetails rentData={rentData} /> */}
 
-
         <View style={{ marginTop: 10, marginBottom: 10 }}>
           {rentData.map((item, index) => (
             <View key={index} style={[styles.item, { backgroundColor: item.bgColor, marginTop: (index === 3 || index === 5) ? 12 : 0 }]}>
               {item.title2 ? (
-                <View style={styles.container2}>
+                <TouchableOpacity style={styles.container2}>
                   <Text style={styles.title}>{item.title}</Text>
                   <Text style={[styles.title, { fontStyle: 'italic', fontWeight: '500' }]}>{item.title2}</Text>
-                </View>
+                </TouchableOpacity>
               ) : (
-                <View style={styles.container2}>
+                <TouchableOpacity style={styles.container2}>
                   <Text style={{ ...styles.title, width: '80%' }}>{item.title}</Text>
                   <Text style={styles.price}>{item.price}</Text>
-                </View>
+                </TouchableOpacity>
               )}
             </View>
           ))}
@@ -127,14 +126,12 @@ const Home = () => {
         <View style={{ flex: 1, marginBottom: 50, }}>
           <Text style={{ ...styles.titleSection }}>Quick Notification</Text>
 
-          <View style={{ marginVertical: 10, padding: 15, backgroundColor: colors.white, borderWidth: 1, borderColor: colors.primary, borderRadius: 5, }} >
+          <TouchableOpacity style={{ marginVertical: 10, padding: 15, backgroundColor: colors.white, borderWidth: 1, borderColor: colors.primary, borderRadius: 5, }} >
             <View style={{ flexDirection: 'row', justifyContent: 'flex-start', marginVertical: 10, borderBottomWidth: 1, borderColor: colors.lightGray }}>
               <Image source={require('../assets/images/house.jpg')} style={{ width: width * 0.2, height: width * 0.24, borderRadius: 8 }} />
 
               <View style={{ alignItems: 'flex-start', marginLeft: width * 0.06 }} >
-
                 <Text style={{ color: colors.primary, fontWeight: '600', fontSize: width * 0.03 }}>Upcoming rent</Text>
-
                 <View style={{ justifyContent: 'space-between', flexDirection: 'row', }}>
                   <View>
                     <Text style={{ fontSize: width * 0.028, color: colors.black, fontWeight: '700', marginTop: 10 }}>$ 600</Text>
@@ -150,10 +147,7 @@ const Home = () => {
                   <Text style={{ fontSize: width * 0.028, color: colors.black, fontWeight: '700', marginTop: 10, }}>5 Jul 2023</Text>
                   <Text style={{ marginBottom: 10 }}>Old Balance</Text>
                 </View>
-
               </View>
-
-
             </View>
 
             <View style={{ flexDirection: 'row', justifyContent: 'flex-start', marginVertical: 10 }}>
@@ -167,11 +161,13 @@ const Home = () => {
                 <Text style={{ fontSize: width * 0.025, color: colors.black, fontWeight: '400' }}>Renewal Due Date</Text>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
 
           <View style={{ ...styles.container2, }}>
             <Text style={{ ...styles.titleSection }}>Service Request</Text>
-            <Text style={{ color: colors.viewAll }}>View All</Text>
+            <TouchableOpacity>
+              <Text style={{ color: colors.viewAll }}>View All</Text>
+            </TouchableOpacity>
           </View>
 
           <View style={{ backgroundColor: colors.white, }}>
@@ -198,7 +194,9 @@ const Home = () => {
 
           <View style={{ ...styles.container2, }}>
             <Text style={{ ...styles.titleSection }}>Popular Service</Text>
-            <Text style={{ color: colors.viewAll }}>View All</Text>
+            <TouchableOpacity>
+              <Text style={{ color: colors.viewAll }}>View All</Text>
+            </TouchableOpacity>
           </View>
 
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -211,11 +209,7 @@ const Home = () => {
           </ScrollView>
 
         </View>
-
       )}
-
-
-
     </ScrollView>
   )
 }
